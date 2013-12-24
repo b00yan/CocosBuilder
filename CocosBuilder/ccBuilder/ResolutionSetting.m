@@ -127,7 +127,7 @@
     setting.width = 0;
     setting.height = 0;
     setting.ext = @"iphone5";
-    setting.scale = 1;
+    setting.scale = 2;
     
     return setting;
 }

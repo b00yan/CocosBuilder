@@ -121,6 +121,7 @@
 @synthesize publishResolution_hd;
 @synthesize publishResolution_ipad;
 @synthesize publishResolution_ipadhd;
+@synthesize publishResolution_iphone5;
 @synthesize publishResolution_xsmall;
 @synthesize publishResolution_small;
 @synthesize publishResolution_medium;
@@ -176,6 +177,7 @@
     self.publishResolution_hd = YES;
     self.publishResolution_ipad = YES;
     self.publishResolution_ipadhd = YES;
+    self.publishResolution_iphone5 = YES;
     self.publishResolution_xsmall = YES;
     self.publishResolution_small = YES;
     self.publishResolution_medium = YES;

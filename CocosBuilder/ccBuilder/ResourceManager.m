@@ -824,6 +824,7 @@
     float dstScale = 1;
     if ([res isEqualToString:@"iphone"]) dstScale = 1;
     if ([res isEqualToString:@"iphonehd"]) dstScale = 2;
+    if ([res isEqualToString:@"iphone5"]) dstScale = 2;
     else if ([res isEqualToString:@"ipad"]) dstScale = 2;
     else if ([res isEqualToString:@"ipadhd"]) dstScale = 4;
     else if ([res isEqualToString:@"xsmall"]) dstScale = 0.5;
