@@ -37,6 +37,7 @@
     
     // iOS
     [predefinedResolutions addObject:[ResolutionSetting settingIPhone]];
+    [predefinedResolutions addObject:[ResolutionSetting settingIPhone5]];
     [predefinedResolutions addObject:[ResolutionSetting settingIPhoneLandscape]];
     [predefinedResolutions addObject:[ResolutionSetting settingIPhonePortrait]];
     [predefinedResolutions addObject:[ResolutionSetting settingIPhone5Landscape]];

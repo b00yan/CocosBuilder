@@ -72,6 +72,7 @@
     BOOL publishResolution_hd;
     BOOL publishResolution_ipad;
     BOOL publishResolution_ipadhd;
+    BOOL publishResolution_iphone5;
     BOOL publishResolution_xsmall;
     BOOL publishResolution_small;
     BOOL publishResolution_medium;
@@ -119,6 +120,7 @@
 @property (nonatomic,assign) BOOL publishResolution_hd;
 @property (nonatomic,assign) BOOL publishResolution_ipad;
 @property (nonatomic,assign) BOOL publishResolution_ipadhd;
+@property (nonatomic,assign) BOOL publishResolution_iphone5;
 @property (nonatomic,assign) BOOL publishResolution_xsmall;
 @property (nonatomic,assign) BOOL publishResolution_small;
 @property (nonatomic,assign) BOOL publishResolution_medium;
