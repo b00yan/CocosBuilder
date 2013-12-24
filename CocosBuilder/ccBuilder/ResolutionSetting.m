@@ -119,6 +119,19 @@
     return setting;
 }
 
++ (ResolutionSetting*) settingIPhone5
+{
+    ResolutionSetting* setting = [[[ResolutionSetting alloc] init] autorelease];
+    
+    setting.name = @"iPhone5";
+    setting.width = 0;
+    setting.height = 0;
+    setting.ext = @"iphone5";
+    setting.scale = 1;
+    
+    return setting;
+}
+
 + (ResolutionSetting*) settingIPhoneLandscape
 {
     ResolutionSetting* setting = [self settingIPhone];
@@ -143,7 +156,7 @@
 
 + (ResolutionSetting*) settingIPhone5Landscape
 {
-    ResolutionSetting* setting = [self settingIPhone];
+    ResolutionSetting* setting = [self settingIPhone5];
     
     setting.name = @"iPhone 5 Landscape";
     setting.width = 568;
@@ -154,7 +167,7 @@
 
 + (ResolutionSetting*) settingIPhone5Portrait
 {
-    ResolutionSetting* setting = [self settingIPhone];
+    ResolutionSetting* setting = [self settingIPhone5];
     
     setting.name = @"iPhone 5 Portrait";
     setting.width = 320;

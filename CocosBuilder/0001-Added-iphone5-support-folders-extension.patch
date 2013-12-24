@@ -1,0 +1,117 @@
+From 24534c70352d4d52a4ae215c4843acb584517cee Mon Sep 17 00:00:00 2001
+From: Bojan Naumoski <valiumsen@gmail.com>
+Date: Tue, 24 Dec 2013 14:10:17 +0100
+Subject: [PATCH] Added iphone5 support , folders & extension
+
+---
+ CocosBuilder/ccBuilder/CCBPublisher.m             |  4 ++++
+ CocosBuilder/ccBuilder/ProjectSettings.h          |  2 ++
+ CocosBuilder/ccBuilder/ResolutionSetting.h        |  1 +
+ CocosBuilder/ccBuilder/ResolutionSetting.m        | 17 +++++++++++++++--
+ CocosBuilder/ccBuilder/ResolutionSettingsWindow.m |  1 +
+ 5 files changed, 23 insertions(+), 2 deletions(-)
+
+diff --git a/CocosBuilder/ccBuilder/CCBPublisher.m b/CocosBuilder/ccBuilder/CCBPublisher.m
+index 8e0f85e..c1ded57 100644
+--- a/CocosBuilder/ccBuilder/CCBPublisher.m
++++ b/CocosBuilder/ccBuilder/CCBPublisher.m
+@@ -937,6 +937,10 @@
+             {
+                 [resolutions addObject:@"ipadhd"];
+             }
++            if (projectSettings.publishResolution_iphone5){
++                [resolutions addObject:@"iphone5"];
++            }
++            
+             publishForResolutions = resolutions;
+             
+             publishToSingleResolution = NO;
+diff --git a/CocosBuilder/ccBuilder/ProjectSettings.h b/CocosBuilder/ccBuilder/ProjectSettings.h
+index 53ab258..069f6e9 100644
+--- a/CocosBuilder/ccBuilder/ProjectSettings.h
++++ b/CocosBuilder/ccBuilder/ProjectSettings.h
+@@ -72,6 +72,7 @@
+     BOOL publishResolution_hd;
+     BOOL publishResolution_ipad;
+     BOOL publishResolution_ipadhd;
++    BOOL publishResolution_iphone5;
+     BOOL publishResolution_xsmall;
+     BOOL publishResolution_small;
+     BOOL publishResolution_medium;
+@@ -119,6 +120,7 @@
+ @property (nonatomic,assign) BOOL publishResolution_hd;
+ @property (nonatomic,assign) BOOL publishResolution_ipad;
+ @property (nonatomic,assign) BOOL publishResolution_ipadhd;
++@property (nonatomic,assign) BOOL publishResolution_iphone5;
+ @property (nonatomic,assign) BOOL publishResolution_xsmall;
+ @property (nonatomic,assign) BOOL publishResolution_small;
+ @property (nonatomic,assign) BOOL publishResolution_medium;
+diff --git a/CocosBuilder/ccBuilder/ResolutionSetting.h b/CocosBuilder/ccBuilder/ResolutionSetting.h
+index 7b1b5f1..fb562ca 100644
+--- a/CocosBuilder/ccBuilder/ResolutionSetting.h
++++ b/CocosBuilder/ccBuilder/ResolutionSetting.h
+@@ -47,6 +47,7 @@
+ 
+ // iOS resolutions
+ + (ResolutionSetting*) settingIPhone;
+++ (ResolutionSetting*) settingIPhone5;
+ + (ResolutionSetting*) settingIPhoneLandscape;
+ + (ResolutionSetting*) settingIPhonePortrait;
+ + (ResolutionSetting*) settingIPhone5Landscape;
+diff --git a/CocosBuilder/ccBuilder/ResolutionSetting.m b/CocosBuilder/ccBuilder/ResolutionSetting.m
+index cf4d7b9..221a8ea 100644
+--- a/CocosBuilder/ccBuilder/ResolutionSetting.m
++++ b/CocosBuilder/ccBuilder/ResolutionSetting.m
+@@ -119,6 +119,19 @@
+     return setting;
+ }
+ 
+++ (ResolutionSetting*) settingIPhone5
++{
++    ResolutionSetting* setting = [[[ResolutionSetting alloc] init] autorelease];
++    
++    setting.name = @"iPhone5";
++    setting.width = 0;
++    setting.height = 0;
++    setting.ext = @"iphone5";
++    setting.scale = 1;
++    
++    return setting;
++}
++
+ + (ResolutionSetting*) settingIPhoneLandscape
+ {
+     ResolutionSetting* setting = [self settingIPhone];
+@@ -143,7 +156,7 @@
+ 
+ + (ResolutionSetting*) settingIPhone5Landscape
+ {
+-    ResolutionSetting* setting = [self settingIPhone];
++    ResolutionSetting* setting = [self settingIPhone5];
+     
+     setting.name = @"iPhone 5 Landscape";
+     setting.width = 568;
+@@ -154,7 +167,7 @@
+ 
+ + (ResolutionSetting*) settingIPhone5Portrait
+ {
+-    ResolutionSetting* setting = [self settingIPhone];
++    ResolutionSetting* setting = [self settingIPhone5];
+     
+     setting.name = @"iPhone 5 Portrait";
+     setting.width = 320;
+diff --git a/CocosBuilder/ccBuilder/ResolutionSettingsWindow.m b/CocosBuilder/ccBuilder/ResolutionSettingsWindow.m
+index faa2df6..2530203 100644
+--- a/CocosBuilder/ccBuilder/ResolutionSettingsWindow.m
++++ b/CocosBuilder/ccBuilder/ResolutionSettingsWindow.m
+@@ -37,6 +37,7 @@
+     
+     // iOS
+     [predefinedResolutions addObject:[ResolutionSetting settingIPhone]];
++    [predefinedResolutions addObject:[ResolutionSetting settingIPhone5]];
+     [predefinedResolutions addObject:[ResolutionSetting settingIPhoneLandscape]];
+     [predefinedResolutions addObject:[ResolutionSetting settingIPhonePortrait]];
+     [predefinedResolutions addObject:[ResolutionSetting settingIPhone5Landscape]];
+-- 
+1.8.3.4 (Apple Git-47)
+

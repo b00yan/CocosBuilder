@@ -937,6 +937,10 @@
             {
                 [resolutions addObject:@"ipadhd"];
             }
+            if (projectSettings.publishResolution_iphone5){
+                [resolutions addObject:@"iphone5"];
+            }
+            
             publishForResolutions = resolutions;
             
             publishToSingleResolution = NO;
